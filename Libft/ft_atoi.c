@@ -6,7 +6,7 @@
 /*   By: glora <glora@student.21-school.ru>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/16 10:01:31 by glora             #+#    #+#             */
-/*   Updated: 2020/11/16 11:37:02 by glora            ###   ########.fr       */
+/*   Updated: 2020/11/18 14:09:45 by glora            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,9 +31,12 @@ int		ft_atoi(const char *str)
 	}
 	else if (str[i] == '+')
 		i++;
-	while (str[i] != '\0' && ft_isdigit(str[i]))
-		nbr = (nbr * 10) + (str[i++] - '0');
+	while (str[i] && (str[i] >= '0') && (str[i] <= '9'))
+		nbr *= 10;
+		nbr += (int)str[i] - '0';
+		i++;
 	if (negative == 1)
 		return (-nbr);
-	return (nbr);
+	else
+		return (nbr);
 }

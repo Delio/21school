@@ -6,23 +6,23 @@
 #    By: glora <glora@student.21-school.ru>         +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/10/29 19:40:00 by glora             #+#    #+#              #
-#    Updated: 2020/11/17 11:29:26 by glora            ###   ########.fr        #
+#    Updated: 2020/11/18 14:25:40 by glora            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 COMPILE = gcc
 FLAGS = -Wall -Werror -Wextra
-SOURCES = *.c
+SOURCES = ft_atoi.c
 OBJECTS = $(SOURCES: .c=.o)
-PROGRAM = project.out
+PROGRAM = libft.a
+
+$(PROGRAM): $(OBJECTS)
+	ar r $(PROGRAM) $(OBJECTS)
 
 all: $(PROGRAM)
 
-$(PROGRAM): $(SOURCES)
-	gcc -c *.c 
-	ar r libft.a *.o
-	gcc -o project *.o libft.a
+clean:
+		rm *.o
 
-.c.o:
-	$(gcc) $(FLAGS) $< -o $@
-
+fclean: clean
+		rm -f $(PROGRAM)

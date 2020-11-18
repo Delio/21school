@@ -1,27 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_memccpy.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: glora <glora@student.21-school.ru>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/11/03 11:12:03 by glora             #+#    #+#             */
-/*   Updated: 2020/11/16 11:26:34 by glora            ###   ########.fr       */
+/*   Created: 2020/11/16 12:01:52 by glora             #+#    #+#             */
+/*   Updated: 2020/11/16 12:02:03 by glora            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-#include <stdio.h>
 
-int		main(int argc, char **argv)
+void	*ft_memccpy(void *dst, const void *src, int c, size_t n)
 {
-	(void)argc;
-	(void)argv;
-	char *str;
+	unsigned char		cuc;
+	unsigned char		*dstc;
+	const unsigned char	*srccc;
+	size_t				i;
 
-	str = "111123123123";
-	printf("%d", ft_strlen(str));
-	printf("\n");
-	printf("%d", ft_atoi(str));
+	cuc = (unsigned char)c;
+	dstc = (unsigned char *)dst;
+	srccc = (const unsigned char*)src;
+	i = 0;
+	while (i < n)
+	{
+		dstc[i] = srccc[i];
+		if (srccc[i] == cuc)
+			return (dst + i + 1);
+		i++;
+	}
 	return (0);
 }

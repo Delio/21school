@@ -1,27 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_bzero.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: glora <glora@student.21-school.ru>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/11/03 11:12:03 by glora             #+#    #+#             */
-/*   Updated: 2020/11/16 11:26:34 by glora            ###   ########.fr       */
+/*   Created: 2020/11/16 11:56:52 by glora             #+#    #+#             */
+/*   Updated: 2020/11/16 11:56:59 by glora            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-#include <stdio.h>
 
-int		main(int argc, char **argv)
+void	ft_bzero(void *s, size_t n)
 {
-	(void)argc;
-	(void)argv;
-	char *str;
+	size_t			i;
+	unsigned char	*suc;
 
-	str = "111123123123";
-	printf("%d", ft_strlen(str));
-	printf("\n");
-	printf("%d", ft_atoi(str));
-	return (0);
+	i = 0;
+	suc = (unsigned char *)s;
+	while (i < n)
+	{
+		suc[i] = 0;
+		i++;
+	}
+	s = suc;
 }

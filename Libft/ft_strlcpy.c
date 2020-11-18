@@ -1,27 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_strlcpy.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: glora <glora@student.21-school.ru>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/11/03 11:12:03 by glora             #+#    #+#             */
-/*   Updated: 2020/11/16 11:26:34 by glora            ###   ########.fr       */
+/*   Created: 2020/11/03 14:48:55 by glora             #+#    #+#             */
+/*   Updated: 2020/11/03 15:18:12 by glora            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
-#include <stdio.h>
+# include <string.h>
 
-int		main(int argc, char **argv)
+char	*ft_strlcpy(char *dst, const char *src)
 {
-	(void)argc;
-	(void)argv;
-	char *str;
+	size_t i;
 
-	str = "111123123123";
-	printf("%d", ft_strlen(str));
-	printf("\n");
-	printf("%d", ft_atoi(str));
-	return (0);
+	i = 0;
+	while (src[i])
+	{
+		dst[i] = src[i];
+		i++;
+	}
+	dst[i] = '\0';
+	return (dst);
 }

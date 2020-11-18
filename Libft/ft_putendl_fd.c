@@ -1,27 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_putendl_fd.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: glora <glora@student.21-school.ru>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/11/03 11:12:03 by glora             #+#    #+#             */
-/*   Updated: 2020/11/16 11:26:34 by glora            ###   ########.fr       */
+/*   Created: 2020/11/17 10:30:14 by glora             #+#    #+#             */
+/*   Updated: 2020/11/17 10:30:32 by glora            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-#include <stdio.h>
 
-int		main(int argc, char **argv)
+void	ft_putendl_fd(char *s, int fd)
 {
-	(void)argc;
-	(void)argv;
-	char *str;
-
-	str = "111123123123";
-	printf("%d", ft_strlen(str));
-	printf("\n");
-	printf("%d", ft_atoi(str));
-	return (0);
+	if (!s)
+		return ;
+	while (*s)
+		write(fd, s++, 1);
+	write(fd, "\n", 1);
 }

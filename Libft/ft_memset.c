@@ -1,27 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_memset.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: glora <glora@student.21-school.ru>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/11/03 11:12:03 by glora             #+#    #+#             */
-/*   Updated: 2020/11/16 11:26:34 by glora            ###   ########.fr       */
+/*   Created: 2020/11/16 11:51:06 by glora             #+#    #+#             */
+/*   Updated: 2020/11/16 11:53:38 by glora            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-#include <stdio.h>
 
-int		main(int argc, char **argv)
+void	*ft_memset(void *b, int c, size_t len)
 {
-	(void)argc;
-	(void)argv;
-	char *str;
+	size_t			i;
+	unsigned char	*buc;
 
-	str = "111123123123";
-	printf("%d", ft_strlen(str));
-	printf("\n");
-	printf("%d", ft_atoi(str));
-	return (0);
+	i = 0;
+	buc = (unsigned char *)b;
+	while (i < len)
+	{
+		buc[i] = c;
+		i++;
+	}
+	return (b = buc);
 }

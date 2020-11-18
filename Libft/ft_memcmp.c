@@ -1,27 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_memcmp.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: glora <glora@student.21-school.ru>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/11/03 11:12:03 by glora             #+#    #+#             */
-/*   Updated: 2020/11/16 11:26:34 by glora            ###   ########.fr       */
+/*   Created: 2020/11/16 12:04:17 by glora             #+#    #+#             */
+/*   Updated: 2020/11/16 12:04:31 by glora            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-#include <stdio.h>
 
-int		main(int argc, char **argv)
+void	*ft_memcpy(void *dst, const void *src, size_t n)
 {
-	(void)argc;
-	(void)argv;
-	char *str;
+	char		*dstc;
+	const char	*srccc;
 
-	str = "111123123123";
-	printf("%d", ft_strlen(str));
-	printf("\n");
-	printf("%d", ft_atoi(str));
-	return (0);
+	if ((dst == src) || n == 0)
+		return (dst);
+	if (!dst && !src)
+		return (0);
+	dstc = (char *)dst;
+	srccc = (const char *)src;
+	while (n--)
+		dstc[n] = srccc[n];
+	return (dst);
 }

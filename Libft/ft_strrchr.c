@@ -1,27 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   strrchr.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: glora <glora@student.21-school.ru>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/11/03 11:12:03 by glora             #+#    #+#             */
-/*   Updated: 2020/11/16 11:26:34 by glora            ###   ########.fr       */
+/*   Created: 2020/11/17 10:09:49 by glora             #+#    #+#             */
+/*   Updated: 2020/11/17 10:10:29 by glora            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
-#include <stdio.h>
-
-int		main(int argc, char **argv)
+char	*ft_strrchr(const char *s, int c)
 {
-	(void)argc;
-	(void)argv;
-	char *str;
+	int		i;
+	char	*ptr;
 
-	str = "111123123123";
-	printf("%d", ft_strlen(str));
-	printf("\n");
-	printf("%d", ft_atoi(str));
-	return (0);
+	i = 0;
+	ptr = 0;
+	while (s[i])
+	{
+		if (s[i] == c)
+			ptr = (char *)(s + i);
+		i++;
+	}
+	if (s[i] == c)
+		ptr = (char *)(s + i);
+	return (ptr);
 }

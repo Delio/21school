@@ -1,27 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_putstr_fd.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: glora <glora@student.21-school.ru>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/11/03 11:12:03 by glora             #+#    #+#             */
-/*   Updated: 2020/11/16 11:26:34 by glora            ###   ########.fr       */
+/*   Created: 2020/11/17 10:29:50 by glora             #+#    #+#             */
+/*   Updated: 2020/11/17 10:29:57 by glora            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
-#include <stdio.h>
+#include <unistd.h>
 
-int		main(int argc, char **argv)
+void	ft_putstr_fd(char *s, int fd)
 {
-	(void)argc;
-	(void)argv;
-	char *str;
+	int i;
 
-	str = "111123123123";
-	printf("%d", ft_strlen(str));
-	printf("\n");
-	printf("%d", ft_atoi(str));
-	return (0);
+	i = 0;
+	if (s)
+		while (s[i] != '\0')
+			write(fd, &s[i++], 1);
 }

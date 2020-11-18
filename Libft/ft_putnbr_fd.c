@@ -1,27 +1,41 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_putnbr_fd.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: glora <glora@student.21-school.ru>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/11/03 11:12:03 by glora             #+#    #+#             */
-/*   Updated: 2020/11/16 11:26:34 by glora            ###   ########.fr       */
+/*   Created: 2020/11/17 10:30:46 by glora             #+#    #+#             */
+/*   Updated: 2020/11/17 10:31:10 by glora            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-#include <stdio.h>
 
-int		main(int argc, char **argv)
+void	ft_putnbr_fd(int n, int fd)
 {
-	(void)argc;
-	(void)argv;
-	char *str;
+	char c;
 
-	str = "111123123123";
-	printf("%d", ft_strlen(str));
-	printf("\n");
-	printf("%d", ft_atoi(str));
-	return (0);
+	if (n == -2147483648)
+		write(fd, "-2147483648", 11);
+	else
+	{
+		if (n < 0)
+		{
+			write(fd, "-", 1);
+			n = -n;
+			ft_putnbr_fd(n, fd);
+		}
+		else if (n < 10)
+		{
+			c = n + '0';
+			write(fd, &c, 1);
+		}
+		else
+		{
+			ft_putnbr_fd(n / 10, fd);
+			c = (n % 10) + '0';
+			write(fd, &c, 1);
+		}
+	}
 }

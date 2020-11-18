@@ -1,27 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_strdup.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: glora <glora@student.21-school.ru>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/11/03 11:12:03 by glora             #+#    #+#             */
-/*   Updated: 2020/11/16 11:26:34 by glora            ###   ########.fr       */
+/*   Created: 2020/11/17 10:22:03 by glora             #+#    #+#             */
+/*   Updated: 2020/11/17 10:22:17 by glora            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-#include <stdio.h>
 
-int		main(int argc, char **argv)
+char	*ft_strdup(const char *s1)
 {
-	(void)argc;
-	(void)argv;
-	char *str;
+	char	*rtn;
+	size_t	len;
 
-	str = "111123123123";
-	printf("%d", ft_strlen(str));
-	printf("\n");
-	printf("%d", ft_atoi(str));
-	return (0);
+	len = ft_strlen(s1) + 1;
+	rtn = malloc(sizeof(char) * len);
+	if (!rtn)
+		return (0);
+	rtn = ft_memcpy(rtn, s1, len);
+	return (rtn);
 }

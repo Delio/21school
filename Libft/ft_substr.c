@@ -1,27 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_substr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: glora <glora@student.21-school.ru>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/11/03 11:12:03 by glora             #+#    #+#             */
-/*   Updated: 2020/11/16 11:26:34 by glora            ###   ########.fr       */
+/*   Created: 2020/11/17 10:23:23 by glora             #+#    #+#             */
+/*   Updated: 2020/11/17 10:23:42 by glora            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-#include <stdio.h>
 
-int		main(int argc, char **argv)
+char	*ft_substr(char const *s, unsigned int start, size_t len)
 {
-	(void)argc;
-	(void)argv;
-	char *str;
+	char	*rtn;
+	size_t	i;
 
-	str = "111123123123";
-	printf("%d", ft_strlen(str));
-	printf("\n");
-	printf("%d", ft_atoi(str));
-	return (0);
+	if (!s)
+		return (NULL);
+	if ((size_t)start > ft_strlen(s))
+		return (ft_strdup(""));
+	rtn = malloc(sizeof(char) * (len + 1));
+	i = 0;
+	if (!rtn)
+		return (0);
+	while (i < len)
+	{
+		rtn[i] = *(s + start + i);
+		i++;
+	}
+	rtn[i] = '\0';
+	return (rtn);
 }

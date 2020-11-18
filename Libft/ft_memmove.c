@@ -1,27 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_memmove.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: glora <glora@student.21-school.ru>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/11/03 11:12:03 by glora             #+#    #+#             */
-/*   Updated: 2020/11/16 11:26:34 by glora            ###   ########.fr       */
+/*   Created: 2020/11/16 12:02:47 by glora             #+#    #+#             */
+/*   Updated: 2020/11/16 12:03:03 by glora            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-#include <stdio.h>
 
-int		main(int argc, char **argv)
+void	*ft_memmove(void *dst, const void *src, size_t len)
 {
-	(void)argc;
-	(void)argv;
-	char *str;
+	char *d;
+	char *s;
 
-	str = "111123123123";
-	printf("%d", ft_strlen(str));
-	printf("\n");
-	printf("%d", ft_atoi(str));
-	return (0);
+	d = (char *)dst;
+	s = (char *)src;
+	if (dst == src)
+		return (dst);
+	if (s < d)
+	{
+		while (len--)
+			*(d + len) = *(s + len);
+		return (dst);
+	}
+	while (len--)
+		*d++ = *s++;
+	return (dst);
 }

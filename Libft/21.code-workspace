@@ -5,6 +5,9 @@
 		},
 		{
 			"path": "../Libft Test"
+		},
+		{
+			"path": "../../../../Downloads/Libft-master/libft"
 		}
 	],
 	"settings": {}

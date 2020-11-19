@@ -6,24 +6,33 @@
 #    By: glora <glora@student.21-school.ru>         +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/10/29 19:40:00 by glora             #+#    #+#              #
-#    Updated: 2020/11/19 10:05:38 by glora            ###   ########.fr        #
+#    Updated: 2020/11/19 19:30:36 by glora            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 COMPILE = gcc
-FLAGS = -Wall -Werror -Wextra
-SOURCES = ft_atoi.c
-OBJECTS = $(SOURCES: .c=.o)
+ARRAY = ar
+FLAGS := -Wall -Werror -Wextra
+SOURCES = ft_atoi.c\
+	ft_strlen.c\
+	ft_strlcpy.c\
+	ft_strlcat
+
+OBJECTS := ${SOURCES:c=o}
 NAME = libft.a
 
 all: $(NAME)
-
+#delete main c and -o
 $(NAME):
-	gcc $(FLAGS) -c $(SOURCES)
-	ar rc $(NAME) $(OBJECTS)
+	$(COMPILE) $(FLAGS) -c $(SOURCES)
+	$(ARRAY) r ${NAME} ${OBJECTS}
+	$(COMPILE) main.c -c
+	$(COMPILE) -o main main.o -L. -lft 
 
+#delete main.o
 clean:
-		rm -f $(OBJECTS)
+		rm -f ${OBJECTS}
+		rm -f main.o
 
 fclean: clean
 		rm -f $(NAME)
